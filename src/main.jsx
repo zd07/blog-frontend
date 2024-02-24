@@ -1,13 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './App.jsx';
-import './index.css'
+import './index.css';
 import {
-  
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
-} from "react-router-dom";
-import Home from "./pages/Home.jsx"
+} from "react-router-dom"; // Import HashRouter instead of BrowserRouter
+import Home from "./pages/Home.jsx";
 import Blog from './pages/Blog.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
@@ -15,7 +14,7 @@ import Services from './pages/Services.jsx';
 import LogIn from './pages/LogIn.jsx';
 import SignUp from './pages/SignUp.jsx';
 
-const router = createBrowserRouter([
+const router = createHashRouter([ // Use createHashRouter instead of createBrowserRouter
   {
     path:"/",
     element:<App/>,
@@ -50,9 +49,10 @@ const router = createBrowserRouter([
       }
     ]
   },
-])
+]);
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
